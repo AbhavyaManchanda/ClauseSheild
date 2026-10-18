@@ -87,12 +87,12 @@ with st.sidebar:
 
     if is_online:
         st.success("🟢 Ollama Service Active", icon="✅")
+        default_index = 0
         if not available_models:
             st.warning("No models found in Ollama. Run: `ollama pull llama3.1`")
             model_options = [DEFAULT_MODEL]
         else:
             # Prefer llama3.1 if present
-            default_index = 0
             for idx, m in enumerate(available_models):
                 if "llama3.1" in m.lower():
                     default_index = idx
